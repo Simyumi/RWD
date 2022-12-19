@@ -1,0 +1,71 @@
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+}
+.group1{
+  background:gold;
+}
+.group2{
+  background:pink;
+}
+.group3{
+  background:lightblue;
+}
+.group4{
+  background:lightcyan;
+}
+.group5{
+  background:lightcoral;
+}
+.group6{
+  background:lightgoldenrodyellow;
+}
+.group7{
+  background:lightsalmon;
+}
+.group8{
+  background:lightseagreen;
+}
+.group9{
+  background:lightskyblue;
+}
+.group10{
+  background:goldenrod;
+}
+.group11{
+  background:cornflowerblue;
+}
+.group12{
+  background:cornsilk;
+}
+.container{
+  background:silver;
+  border:1px solid red;
+  display:grid;
+  grid-template-rows:auto;
+  padding:24px;
+  gap:24px;
+}
+[class*="group"]{
+  height:150px;
+}
+/* small device */
+@media (max-width:767px){
+  .container{
+    grid-template-columns:1fr;
+  }
+}
+/* medium Device */
+@media (min-width:768px){
+  .container{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+/* Large Device */
+@media (min-width:1280px){
+  .container{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
