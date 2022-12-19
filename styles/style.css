@@ -4,6 +4,7 @@
 @import url(./theme.css);
 @import url(./base.css);
 
+
 /* 모든 디바이스 (All Device) */
 /* 공통 헤더 */
 .appHeader {
@@ -13,6 +14,7 @@
   padding: var(--spacing-base) var(--spacing-lg);
   gap: var(--spacing-base);
 }
+
 /* 공통 로고*/
 .logo {
   width: 12.75rem; /* 204px */
@@ -32,7 +34,8 @@
   flex-flow: row nowrap;
   justify-content: flex-end;
 }
-* 공통 검색 폼 */
+
+/* 공통 검색 폼 */
 input[type="search"] {
   -webkit-appearance: none;
   appearance: none;
@@ -44,28 +47,27 @@ input[type="search"] {
 }
 
 .searchForm__group .formInput {
-  margin-right: var(--spacing-xs); /*8px만큼 여백을 줌*/
+  margin-right: var(--spacing-xs);
 }
 
 .searchForm__group .formInput__input {
-  width: 100%; 
-  height: 2rem; /*꾸미기*/
+  width: 100%;
+  height: 2rem;
   border: 1px solid var(--silver);
   background: var(--white);
   border-radius: 0.25rem;
-  padding:var(--spacing-sxxs) var(--spacing-sm);
+  padding: var(--spacing-sxxs) var(--spacing-sm);
 }
 
 .button {
   cursor: pointer;
   height: 2rem;
   border-radius: 0.25rem;
-  padding: 0.125rem 0.75rem;
-  /* white-space: nowrap;  */
-  flex-shrink:0;
+  padding: var(--spacing-sxxs) var(--spacing-sm);
+  flex: 0 0 auto;
   font-size: var(--text-sm);
 }
-/* 상황에 따라 쓰기위해 세가지 만들어짐 */
+
 .button--none {
   border: 0;
   padding: 0;
@@ -83,13 +85,20 @@ input[type="search"] {
   color: var(--secondary-color);
   border: 1px solid currentColor;
 }
+
+/* 공통 메인 메뉴 */
 .menu__link {
   display: block;
-  padding: var(--spacing-xs);
   font-size: var(--text-md);
   font-weight: 700;
 }
 
+/* 공통 메인 콘텐츠 */
+.appMain {
+  display: grid;
+  gap: var(--spacing-base);
+  padding: var(--spacing-base) var(--spacing-lg);
+}
 
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
@@ -104,13 +113,14 @@ input[type="search"] {
     order: -1;
     font-size: var(--text-sm);
   }
+
   /* 모바일 검색 폼 */
   .searchForm__group .formInput {
     flex-grow: 1;
   }
-   /* 모바일 메뉴 제어 버튼 시작 */
 
-   .buttonWrapper {
+  /* 모바일 메인메뉴 제어버튼 */
+  .buttonWrapper {
     padding: var(--spacing-xxs);
     overflow: hidden;
     position: absolute;
@@ -132,6 +142,7 @@ input[type="search"] {
   .button--burgerBarTop,
   .button--burgerBarMiddle,
   .button--burgerBarBottom {
+    /* pointer-events: none; */
     position: absolute;
     width: 100%;
     height: 20%;
@@ -168,7 +179,8 @@ input[type="search"] {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
   }
-  /* 모바일 메인 메뉴 */
+
+  /* 모베알 메인 메뉴 */
   .menu__list {
     background: var(--accent-opacity-color);
     position: fixed;
@@ -180,77 +192,49 @@ input[type="search"] {
     backdrop-filter: blur(4px);
     padding: var(--spacing-lg);
     transform: translateX(-150%);
+    /* transition: all 600ms; */
   }
 
   .menu__item {
     border-bottom: 1px solid var(--silver);
   }
-.menu__link{
-  padding:var(--spacing-xs);
-}
+
+  .menu__link {
+    padding: var(--spacing-xs);
+  }
+
   .menu.is--active .menu__list {
     transform: none;
   }
+
+  /* 모바일 메인 콘텐츠 */
+  .appMain {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* 모바일 새소식 */
+  .news {
+    grid-area: 1/1/2/3;
+  }
 }
 
-  /* .button--burger {
-    width: 30px;
-    height: 30px;
-    background: blue;
-    position: relative;
-  }
-
-  [class*="button--burgerBar"] {
-    background: var(--white);
-    width: 100%;
-    height: 20%;
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    transition: all 200ms;
-  }
-
-  .button--burgerBarTop {
-    top: 0;
-  }
-  .button--burgerBarMiddle {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .button--burgerBarBottom {
-    top: 100%;
-    transform: translateY(-100%);
-  }
-
-  .is--active .button--burgerBarTop {
-    top: 50%;
-    transform: translate(0%, -50%) rotate(-45deg);
-  }
-  .is--active .button--burgerBarMiddle {
-    transform: translate(-100%, -50%);
-  }
-  .is--active .button--burgerBarBottom {
-    top: 50%;
-    transform: translate(0%, -50%) rotate(45deg);
-  } */
-
-  /* 모바일 메뉴 제어 버튼 종료 */
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width: 769px) {
   /* 데스크탑 헤더 */
   .appHeader {
-    max-width: var(--container-width);  /*변수를 불러옴 변수는 theme파일에서 확인 할 수 있다.*/
+    max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    /* background:gold; */
   }
 
   /* 데스크탑 로고 */
   .logo {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /*자신만큼 끌어 당기기 위해 사용함 */
+    transform: translateY(-50%);
   }
+
   /* 데스크탑 검색 폼 */
   .searchForm__group {
     justify-content: flex-end;
@@ -259,11 +243,13 @@ input[type="search"] {
   .searchForm__group .formInput {
     width: 25rem;
   }
+
   /* 데스크탑 메인메뉴 제어버튼 */
-  .button--burger{
-    display:none;
+  .button--burger {
+    display: none;
   }
-  /* 데스크탑 메인메뉴 */
+
+  /* 데스크탑 메인 메뉴 */
   .menu {
     background: var(--secondary-color);
     padding: var(--spacing-base) var(--spacing-lg);
@@ -280,14 +266,13 @@ input[type="search"] {
   }
 
   .menu__link {
-    padding:var(--spacing-md) var(--spacing-lg);
-    font-size: 1.2rem;
-    font-weight: 700;
+    padding: var(--spacing-md) var(--spacing-lg);
     color: var(--white);
+    font-size: 1.2rem;
     text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
   }
-
 }
+
 /* 고해상도 배경이미지 미디어쿼리 */
 @media (-webkit-min-device-pixel-ratio: 2),
   (min--moz-device-pixel-ratio: 2),
