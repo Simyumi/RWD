@@ -117,7 +117,7 @@ input[type="search"] {
 }
 
 .sprite{
-  background:blue url("./../images/sprite_main.png") no-repeat;
+  background:url("./../images/sprite_main.png") no-repeat;
   height: 3.75rem;
   padding-left: 4rem;
 }
@@ -197,19 +197,19 @@ input[type="search"] {
 
 /* 공통 게시판 */
 .board {
-  background: lightsalmon;
+  /* background: lightsalmon; */
   grid-area: board;
 }
 
 /* 공통 인기 사이트 */
 .favorite {
-  background: skyblue;
+  /* background: skyblue; */
   grid-area: favorite;
 }
 
 /* 공통 트위터 */
 .twitter {
-  background: burlywood;
+  /* background: burlywood; */
   grid-area: twitter;
 }
 
@@ -391,7 +391,7 @@ input[type="search"] {
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    border: 5px solid red;
+    /* border: 5px solid red; */
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: "news news news news news news news news news news news news"
                          "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
