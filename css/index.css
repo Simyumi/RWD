@@ -575,7 +575,6 @@ input[type="search"] {
       "book book book book . board board board board board board board";
     gap: var(--spacing-base);
   }
-
   .book {
     grid-area: book;
   }
